@@ -15,10 +15,16 @@ class Employee:
     def change_increament(cls, amount):
         cls.increament = amount
 
+    @classmethod
+    def from_str(cls, emp_string):
+        fname, lname, salary = emp_string.slipt("-")
+        return cls(fname, lname, salary)
+
      
 
 
 vivek = Employee('vivek', 'vyas', '25000')
+sanya = Employee.from_str("sanya-das-45000")
 dhruv = Employee('dhruv', 'das', '25000')
 
 #class method
@@ -26,6 +32,8 @@ print(vivek.salary)
 Employee.change_increament(3)
 vivek.increase()
 print(vivek.salary)
+
+print(sanya.salary)
 
 
 vivek.increase() # 0 agruement but self is defualt so 1 arguement 
